@@ -9,18 +9,18 @@ import (
 
 func main() {
 	// Create a new engine
-	engine := html.New("./views", ".html")
+	engine := html.New("./template", ".html")
 
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	})
 
 	//Serving static files
-	app.Static("/", "./views")
+	app.Static("/", "./static")
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Render("index", fiber.Map{
-			"Title":"Hello World !!",
+			"Title":"nyelwa-senguji portfolio",
 		})
 	})
 
